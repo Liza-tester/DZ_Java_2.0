@@ -1,3 +1,5 @@
+package Package_1_2;
+
 import java.util.Scanner;
 public class Calculator {
 
@@ -5,7 +7,7 @@ public class Calculator {
      * Метод позволяет складывать,вычитать, делить и умножать 2 дробных числа
      * @author Воробьева Е. Д.
      */
-    public static void main(String[] args) {
+    public static void count() {
         Scanner scan = new Scanner(System.in);
         /*
         Var1 - первое число
