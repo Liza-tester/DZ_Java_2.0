@@ -6,6 +6,7 @@ public class MaxLengthWord {
         System.out.println("Введите количество слов");
         Scanner scan = new Scanner(System.in);
         int numberOfWords = scan.nextInt();
+        System.out.println("Введите слова");
         int maxLength = 0;
         String maxWord = "";
         for (int i = 0; i < numberOfWords; i++){
@@ -15,6 +16,7 @@ public class MaxLengthWord {
                 maxWord = Word;
             }
         }
+        scan.close();
         System.out.println(maxWord);
     }
 }

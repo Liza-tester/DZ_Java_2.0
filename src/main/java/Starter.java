@@ -22,5 +22,6 @@ public class Starter {
             case 4 : {Present.make(); break;}
             default: break;
         }
+        scan.close();
     }
 }

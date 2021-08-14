@@ -1,26 +1,26 @@
 package Package_4;
 
-import java.util.Scanner;
 
 public class Present {
     public static void make() {
-            Scanner scan =new Scanner(System.in);
 
-            System.out.println("Введите вес пончиков");
-            double weight = scan.nextDouble();
-            Donut donuts = new Donut("Пончики", weight, 19.99, "шоколадная");
+            Donut donuts1 = new Donut("Дырка от бублика", 300, 19.99, "шоколадная");
+            Donut donuts2 = new Donut("Агония", 350, 26.99, "ванильная");
+            Marmalade marmalade = new Marmalade("мармелад-1", 150, 60, "мишки", "красный");
+            Candy candies = new Candy("Фантазия", 276, 37, 10);
 
-            System.out.println("Введите вес мармелада");
-            weight = scan.nextDouble();
-            Marmalade marmalade = new Marmalade("Мармелад", weight, 60, "мишки", "красный");
+            Sweets[] present = {donuts1, donuts2, marmalade, candies};
 
-            System.out.println("Введите вес конфет");
-            weight = scan.nextDouble();
-            Candy candies = new Candy("Конфеты", weight, 19.99, 10);
+            double totalWeight = 0;
+            double totalPrice = 0;
 
-            System.out.println("Список товаров: " + Sweets.getAllSweets());
-            System.out.printf("\nЦена подарка: %.2f руб\n",Sweets.getTotalPrice());
-            System.out.printf("\nВес подарка: %.3f кг\n",Sweets.getTotalWeight());
+            for (Sweets tmp: present) {
+                    System.out.println(tmp.toString());
+                    totalWeight+=tmp.getWeight();
+                    totalPrice+= tmp.getPrice();
+            }
+            System.out.printf("Вес подарка: %.2f кг\n", totalWeight/1000);
+            System.out.printf("Цена подарка: %.2f руб", totalPrice);
 
 
     }

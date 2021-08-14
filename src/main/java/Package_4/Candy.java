@@ -7,13 +7,13 @@ public class Candy extends Sweets {
     public Candy(String name, double weight, double price, int number) {
         super(name, weight, price);
         this.number = number;
+    }
 
-        setTotalWeight(getTotalWeight() + weight);
-        setTotalPrice(getTotalPrice() + weight * price);
-        setAllSweets(getAllSweets() + "\n" + name +
-                " - количество в пачке: " + number +
-                ", цена за кг: " + price +
-                ", вес: " + weight);
+    @Override
+    public String toString() {
+        return "Конфеты " +
+                ", шт в пачке: " + number +
+                super.toString();
     }
 }
 

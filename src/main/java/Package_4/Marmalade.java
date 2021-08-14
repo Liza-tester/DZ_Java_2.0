@@ -9,12 +9,13 @@ public class Marmalade extends Sweets {
         super(name, weight, price);
         this.form = form;
         this.colour = colour;
-        setTotalWeight(getTotalWeight()+weight);
-        setTotalPrice(getTotalPrice()+weight*price);
-        setAllSweets(getAllSweets()+"\n"+
-                name + " - форма: " + form +
+    }
+
+    @Override
+    public String toString() {
+        return "Мармелад" +
+                ", форма: " + form +
                 ", цвет: " + colour +
-                ", цена за кг: " + price +
-                ", вес: " + weight);
+                super.toString();
     }
 }

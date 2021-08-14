@@ -20,7 +20,7 @@ public class Calculator {
         String Operation = scan.next();
         System.out.println("Введите второе число");
         double Var2 = scan.nextDouble();
-
+        scan.close();
         // Result - результат вычисления
 
         double Result = 0;
