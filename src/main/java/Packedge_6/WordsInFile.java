@@ -6,17 +6,13 @@ import java.util.*;
 
 public class WordsInFile {
 
-    private Map<String, Integer> wordsFrequency = new HashMap<>();
-    private List<String> wordsList = new ArrayList<>();
-    private String path;
+    private final Map<String, Integer> wordsFrequency = new HashMap<>();
+    private final List<String> wordsList = new ArrayList<>();
 
     public WordsInFile(String path) throws FileNotFoundException {
-
-        this.path = path;
         File file = new File(path);
 
         Scanner scan = new Scanner(file);
-        String fileText = "";
 
         while (scan.hasNext()) {
             Collections.addAll(wordsList, scan.next().toLowerCase().
@@ -43,9 +39,9 @@ public class WordsInFile {
 
         List <String> MostFrequentWord = new ArrayList<>();
         for (String key : wordsFrequency.keySet()) {
-            if (wordsFrequency.get(key) == maxFrequency)
+            if (wordsFrequency.get(key).equals(maxFrequency))
                 MostFrequentWord.add(key);
         }
-        return MostFrequentWord.toString() + " = " + maxFrequency;
+        return MostFrequentWord + " = " + maxFrequency;
     }
     }
