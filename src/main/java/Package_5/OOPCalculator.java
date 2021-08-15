@@ -32,10 +32,10 @@ public class OOPCalculator {
         errorCode = 0;
 
         if (var1 == null || var2 == null) errorCode = 1;
-        else if (var2 == 0) errorCode = 2;
+        else if (var2 == 0 && operation.equals("/")) errorCode = 2;
         else if (operation == null) errorCode = 3;
-        else if (operation != "+" && operation != "-" &&
-                operation != "/" && operation != "*") errorCode = 4;
+        else if (!operation.equals("+") && !operation.equals("-") &&
+                !operation.equals("/") && !operation.equals("*")) errorCode = 4;
         else status = true;
     }
 
@@ -80,7 +80,7 @@ public class OOPCalculator {
 
     public String getResult() {
         statusCheck();
-        if (status == false) return errors[errorCode];
+        if (!status) return errors[errorCode];
         else {
             countResult();
             return " = " + result.toString();
@@ -91,4 +91,8 @@ public class OOPCalculator {
         return operation;
     }
 
+    public String getErrorStatus() {
+        statusCheck();
+        return errors[errorCode];
+    }
 }
