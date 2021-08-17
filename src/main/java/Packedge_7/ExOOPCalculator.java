@@ -18,7 +18,7 @@ public class ExOOPCalculator {
         this.operation = operation;
     }
 
-    public String getResult() {
+    private void countResult() {
 
         try {
         switch (operation) {
@@ -29,18 +29,22 @@ public class ExOOPCalculator {
                 result = var1 - var2;
                 break;
             case "/":
-                result = var1 / var2;
                 if (var2==0) throw new ArithmeticException();
+                result = var1 / var2;
                 break;
             case "*":
                 result = var1 * var2;
                 break;
             default:
                 throw new NoSuchElementException(); }
-        }catch (ArithmeticException e1) { return "\nERROR: " + e1 + " Деление на 0";}
-        catch (NoSuchElementException e2) {return "\nERROR: " + e2 + " Недопустимый оператор";}
-        catch (NullPointerException e3) {return "\nERROR: " + e3 + " Отсутствуют переменные или оператор";}
-        return " = " + result;
+        }catch (ArithmeticException e1) { System.err.println("\nERROR: " + e1 + " Деление на 0");}
+        catch (NoSuchElementException e2) { System.err.println("\nERROR: " + e2 + " Недопустимый оператор");}
+        catch (NullPointerException e3) { System.err.println("\nERROR: " + e3 + " Отсутствуют переменные или оператор");}
+    }
+
+    public Double getResult() {
+        countResult();
+        return result;
     }
 
     public void setVar1(double var1) {
