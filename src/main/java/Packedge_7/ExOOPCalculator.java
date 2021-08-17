@@ -37,9 +37,9 @@ public class ExOOPCalculator {
                 break;
             default:
                 throw new NoSuchElementException(); }
-        }catch (ArithmeticException e1) { return "\nERROR: " + e1.toString() + " Деление на 0";}
-        catch (NoSuchElementException e2) {return "\nERROR: " + e2.toString() + " Недопустимый оператор";}
-        catch (NullPointerException e3) {return "\nERROR: " + e3.toString() + " Отсутствуют переменные или оператор";}
+        }catch (ArithmeticException e1) { return "\nERROR: " + e1 + " Деление на 0";}
+        catch (NoSuchElementException e2) {return "\nERROR: " + e2 + " Недопустимый оператор";}
+        catch (NullPointerException e3) {return "\nERROR: " + e3 + " Отсутствуют переменные или оператор";}
         return " = " + result;
     }
 
