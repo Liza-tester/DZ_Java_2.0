@@ -20,7 +20,6 @@ public class ExOOPCalculator {
 
     private void countResult() {
 
-        try {
         switch (operation) {
             case "+":
                 result = var1 + var2;
@@ -37,9 +36,7 @@ public class ExOOPCalculator {
                 break;
             default:
                 throw new NoSuchElementException(); }
-        }catch (ArithmeticException e1) { System.err.println("\nERROR: " + e1 + " Деление на 0");}
-        catch (NoSuchElementException e2) { System.err.println("\nERROR: " + e2 + " Недопустимый оператор");}
-        catch (NullPointerException e3) { System.err.println("\nERROR: " + e3 + " Отсутствуют переменные или оператор");}
+
     }
 
     public Double getResult() {

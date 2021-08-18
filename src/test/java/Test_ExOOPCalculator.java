@@ -2,6 +2,10 @@ import Packedge_7.ExOOPCalculator;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.NoSuchElementException;
+
+import static org.junit.Assert.assertTrue;
+
 
 public class Test_ExOOPCalculator {
 
@@ -76,35 +80,45 @@ public class Test_ExOOPCalculator {
         ExOOPCalculator calc4 = new ExOOPCalculator(100,-1.03,"*");
         Assert.assertEquals( -103, calc4.getResult(),0);
     }
-    @Test
-    public void getResult_withDivisionByZero(){
+
+    @Test(expected = ArithmeticException.class)
+    public void getResult_withDivisionByZero() {
         ExOOPCalculator calc = new ExOOPCalculator(1,0,"/");
-        Assert.assertNull(calc.getResult());
-    }
-    @Test
-    public void getResult_withNullElements(){
-        ExOOPCalculator calc = new ExOOPCalculator();
-        Assert.assertNull( calc.getResult());
-        calc.setVar1(1);
-        Assert.assertNull( calc.getResult());
-        calc.setVar2(1);
-        Assert.assertNull( calc.getResult());
-        ExOOPCalculator calc1 = new ExOOPCalculator();
-        calc1.setVar2(1);
-        calc1.setOperation("+");
-        Assert.assertNull( calc1.getResult());
+        calc.getResult();
 
     }
-    @Test
+    @Test(expected =  NullPointerException.class)
+    public void getResult_withNullVar1(){
+        ExOOPCalculator calc = new ExOOPCalculator();
+        calc.setVar2(1);
+        calc.setOperation("+");
+        calc.getResult();
+    }
+
+    @Test(expected =  NullPointerException.class)
+    public void getResult_withNullVar2(){
+        ExOOPCalculator calc = new ExOOPCalculator();
+        calc.setVar1(1);
+        calc.setOperation("-");
+        calc.getResult();
+    }
+    @Test(expected =  NullPointerException.class)
+    public void getResult_withNullOperator(){
+        ExOOPCalculator calc = new ExOOPCalculator();
+        calc.setVar2(1);
+        calc.setVar1(1);
+        calc.getResult();
+    }
+
+    @Test(expected = NoSuchElementException.class)
     public void getResult_withWrongOperator(){
         ExOOPCalculator calc = new ExOOPCalculator(1,0,"qwerty");
-        Assert.assertNull(calc.getResult());}
+        calc.getResult();}
 
     // Провальный тест для примера
     @Test
     public void failedTest(){
-        ExOOPCalculator calc = new ExOOPCalculator();
-        calc.setOperation("qwerty");
-        Assert.assertNull( calc.getOperation());
+        String expected = "value";
+        assertTrue(expected.contains("Val"));
     }
 }
